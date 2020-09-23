@@ -9,7 +9,7 @@ public class Main {
         long ts;
 
         ts = nanos();                          // timestamp
-        int status = binarySearch(a, 150);
+        int status = binarySearch(a, 100);
         timeDiff = nanos() - ts;               // calculate time difference
         System.out.println(timeDiff);
 
@@ -30,26 +30,30 @@ public class Main {
         int value = 1;
         int offset = 1;
         Random random = new Random();
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < a.length; i++){
             a[i] = value;
             value += offset * (random.nextInt(3) + 1);
         }
     }
 
     public static int binarySearch(int[] a, int X){
-        int mid = a.length / 2;
-        for(int i = 0; i < 7; i++){
-            int offset = a.length / (int)(Math.pow(2, i+2));
-            if(a[mid] == X){
-                return mid;
+        double min = 0;
+        double max = a.length - 1;
+        int m;
+
+        while(min <= max){
+            m = (int)((min + max) / 2);
+            if(a[m] < X){
+                min = m + 1;
             }
-            else if(a[mid] < X){
-                mid = mid + offset;
+            else if(a[m] > X){
+                max = m - 1;
             }
             else{
-                mid = mid - offset;
+                return m;
             }
         }
+
         return -1;
     }
     public static int sequentialSearch(int[] a, int X){
@@ -65,7 +69,7 @@ public class Main {
     }
 
     public static void printA(int[] a){
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < a.length; i++){
             System.out.printf("%3d %3d%n", i, a[i]);
         }
         System.out.println();
