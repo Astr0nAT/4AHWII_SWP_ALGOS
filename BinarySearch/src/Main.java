@@ -1,4 +1,3 @@
-import java.sql.Timestamp;
 import java.util.Random;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
         long ts;
 
         ts = nanos();                          // timestamp
-        int status = binarySearch(a, 18);
+        int status = binarySearch(a, 150);
         timeDiff = nanos() - ts;               // calculate time difference
         System.out.println(timeDiff);
 
@@ -18,7 +17,7 @@ public class Main {
             System.out.println("Number not found!");
         }
         else{
-            System.out.println("Number found at index " + status);
+            System.out.println("Number found at index " + status + "!");
         }
     }
 
@@ -49,6 +48,17 @@ public class Main {
             }
             else{
                 mid = mid - offset;
+            }
+        }
+        return -1;
+    }
+    public static int sequentialSearch(int[] a, int X){
+        for(int i = 0; i < a.length; i++){
+            if(a[i] == X){
+                return i;
+            }
+            if(a[i] > X){
+                break;
             }
         }
         return -1;
