@@ -1,0 +1,5 @@
+beide suchverfahren anwenden
+zufällige suchzahl wählen
+große datenstruktur (1M)
+
+Zeitmessung bei beiden Verfahren
