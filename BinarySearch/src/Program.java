@@ -9,7 +9,7 @@ public class Program {
         int power, boundary, search;
         double timeBinary, timeSequential, time, factor;
 
-        System.out.print("10^x?: ");
+        System.out.print("Boundary 10^x?: ");
         power = inputInt(1, 8);
 
         boundary = (int) Math.pow(10, power);
@@ -22,7 +22,7 @@ public class Program {
         timeSequential = sequentialSearch(search, boundary);
         time = timeSequential - timeBinary;
 
-        System.out.println("The binary search algorithm was " + time + " nanoseconds faster.");
+        System.out.println("The binary search algorithm was " + time + " ns faster.");
         factor = timeSequential / timeBinary;
         System.out.println("Factor: " + factor);
     }
@@ -37,7 +37,7 @@ public class Program {
         for (int i = 0; i < boundary; i++) {
             if (numbers[i] == search) {
                 timeDiff = nanos() - timestamp;
-                System.out.println("Number found at index " + i + " in " + timeDiff + " nanoseconds.");
+                System.out.println("Number found at index " + i + " in " + timeDiff + " ns.");
             } else if (numbers[i] > search) {
                 break;
             }
@@ -85,7 +85,7 @@ public class Program {
                 max = mid - 1;
             } else {
                 timeDiff = nanos() - timestamp;
-                System.out.println("Number found at index " + mid + " in " + timeDiff + " nanoseconds.");
+                System.out.println("Number found at index " + mid + " in " + timeDiff + " ns.");
                 break;
             }
         }

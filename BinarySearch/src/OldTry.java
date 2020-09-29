@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Main {
+public class OldTry {
     public static void main(String[] args) {
         int[] a = new int[100];
         fillRandomly(a);
